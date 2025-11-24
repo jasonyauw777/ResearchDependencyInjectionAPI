@@ -11,7 +11,6 @@ namespace DependencyInjectionAPI.Services
     {
         public string ExportFile(string message)
         {
-            Console.WriteLine($"Exporting Word Document : {message}");
 
             string ExportOutput = $"Exporting Word Document : {message}";
 
