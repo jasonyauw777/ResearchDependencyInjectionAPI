@@ -7,11 +7,11 @@ namespace DependencyInjectionAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExportFileController
+    public class ExportFileController : ControllerBase
     {
-        private readonly ExportFileServiceFactory _exportFileServiceFactory;
+        private readonly ServicesFactory.ExportFileServiceFactory _exportFileServiceFactory;
 
-        public ExportFileController(ExportFileServiceFactory exportFileServiceFactory)
+        public ExportFileController(ServicesFactory.ExportFileServiceFactory exportFileServiceFactory)
         {
             _exportFileServiceFactory = exportFileServiceFactory;
         }
@@ -19,7 +19,7 @@ namespace DependencyInjectionAPI.Controllers
         [HttpGet("{fileType}")]
         public string Export(int fileType)
         {
-            Enum EnumFileType = (ExportType)fileType;
+            Enum EnumFileType = (FileType)fileType;
             IExportFileService _exportFileService = _exportFileServiceFactory(EnumFileType);
             return _exportFileService.ExportFile("Filename");
         }

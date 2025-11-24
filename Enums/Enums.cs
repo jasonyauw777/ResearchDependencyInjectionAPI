@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInjection.Enums
 {
-    public enum ExportType
+    public enum FileType
     {
         PDF = 1,
         WORD = 2,
