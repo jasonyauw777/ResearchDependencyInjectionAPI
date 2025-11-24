@@ -2,5 +2,5 @@
 
 namespace DependencyInjectionAPI.Factory
 {
-    public delegate IExportFileService ExportFileServiceFactory(string key);
+    public delegate IExportFileService ExportFileServiceFactory(Enum key);
 }

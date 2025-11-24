@@ -14,13 +14,13 @@ namespace DependencyInjectionAPI
             services.AddScoped<ExportExcelService>();
             services.AddTransient<ExportFileServiceFactory>(serviceProvider => key =>
             { 
-                switch (key)
+                switch ((Enum)key)
                 {
-                    case nameof(ExportType.PDF):
+                    case ExportType.PDF:
                         return serviceProvider.GetRequiredService<ExportPDFService>();
-                    case nameof(ExportType.WORD):
+                    case ExportType.WORD:
                         return serviceProvider.GetRequiredService<ExportWordService>();
-                    case nameof(ExportType.EXCEL):
+                    case ExportType.EXCEL:
                         return serviceProvider.GetRequiredService<ExportExcelService>();
                     default:
                         throw new KeyNotFoundException();

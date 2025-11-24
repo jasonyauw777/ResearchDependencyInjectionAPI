@@ -1,4 +1,5 @@
-﻿using DependencyInjectionAPI.Factory;
+﻿using DependencyInjection.Enums;
+using DependencyInjectionAPI.Factory;
 using DependencyInjectionAPI.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,10 @@ namespace DependencyInjectionAPI.Controllers
         }
 
         [HttpGet("{fileType}")]
-        public string Export(string fileType)
+        public string Export(int fileType)
         {
-            IExportFileService _exportFileService = _exportFileServiceFactory(fileType);
+            Enum EnumFileType = (ExportType)fileType;
+            IExportFileService _exportFileService = _exportFileServiceFactory(EnumFileType);
             return _exportFileService.ExportFile("Filename");
         }
     }
