@@ -6,7 +6,6 @@ namespace DependencyInjectionAPI.Services
     {
         public string ExportFile(string message)
         {
-            Console.WriteLine($"Exporting Excel Document : {message}");
 
             string ExportOutput = $"Exporting Excel Document : {message}";
 
