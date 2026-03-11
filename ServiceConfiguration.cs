@@ -12,7 +12,7 @@ namespace DependencyInjectionAPI
             services.AddScoped<ExportPDFService>();
             services.AddScoped<ExportWordService>();
             services.AddScoped<ExportExcelService>();
-            services.AddTransient<ServicesFactory.ExportFileServiceFactory>(serviceProvider => key =>
+            services.AddScoped<ServicesFactory.ExportFileServiceFactory>(serviceProvider => key =>
             { 
                 switch ((Enum)key)
                 {
@@ -30,7 +30,7 @@ namespace DependencyInjectionAPI
             services.AddScoped<ImportPDFService>();
             services.AddScoped<ImportWordService>();
             services.AddScoped<ImportExcelService>();
-            services.AddTransient<ServicesFactory.ImportFileServiceFactory>(serviceProvider => key =>
+            services.AddScoped<ServicesFactory.ImportFileServiceFactory>(serviceProvider => key =>
             {
                 switch ((Enum)key)
                 {
